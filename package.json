@@ -1060,6 +1060,12 @@
                     }
                 }
             }
+        ],
+        "viewsWelcome": [
+            {
+                "view": "debug",
+                "contents": "You can use the Node.JS debugger to debug your Azure Functions project.\n[Initialize Azure Functions Project for Debugging](command:azureFunctions.initProjectForVSCode)\nTo learn more about how to debug your Azure Functions in VS Code [read our docs](https://aka.ms/AA76v2d)."
+            }
         ]
     },
     "scripts": {
