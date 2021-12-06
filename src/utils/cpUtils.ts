@@ -17,7 +17,7 @@ export namespace cpUtils {
             // If outputChannel is _not_ defined, then we include the command's output in the error itself and rely on AzureActionHandler to display it properly
             if (outputChannel) {
                 outputChannel.show();
-                throw new Error(localize('commandErrorWithOutput', 'Failed to run "{0}" command. Check output window for more details.', command));
+                throw new Error(localize('commandErrorWithOutput', 'Failed to run "{0} {1}" command. Check output window for more details.', command, result.formattedArgs));
             } else {
                 throw new Error(localize('commandError', 'Command "{0} {1}" failed with exit code "{2}":{3}{4}', command, result.formattedArgs, result.code, os.EOL, result.cmdOutputIncludingStderr));
             }
