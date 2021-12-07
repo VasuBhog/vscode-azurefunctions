@@ -12,6 +12,7 @@ export namespace cpUtils {
     export async function executeCommand(outputChannel: IAzExtOutputChannel | undefined, workingDirectory: string | undefined, command: string, ...args: string[]): Promise<string> {
         const result: ICommandResult = await tryExecuteCommand(outputChannel, workingDirectory, command, ...args);
         if (result.code !== 0) {
+            console.log('Command output:', result.cmdOutputIncludingStderr);
             // We want to make sure the full error message is displayed to the user, not just the error code.
             // If outputChannel is defined, then we simply call 'outputChannel.show()' and throw a generic error telling the user to check the output window
             // If outputChannel is _not_ defined, then we include the command's output in the error itself and rely on AzureActionHandler to display it properly

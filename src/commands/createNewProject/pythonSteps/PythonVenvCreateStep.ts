@@ -30,8 +30,7 @@ export class PythonVenvCreateStep extends AzureWizardExecuteStep<IPythonVenvWiza
         // Don't wait just for telemetry and don't block on errors
         void getPythonVersion(pythonAlias).then(value => context.telemetry.properties.pythonVersion = value);
 
-        const output = await cpUtils.executeCommand(ext.outputChannel, context.projectPath, pythonAlias, '-m', 'venv', context.venvName);
-        console.log('create venv', output);
+        await cpUtils.executeCommand(ext.outputChannel, context.projectPath, pythonAlias, '-m', 'venv', context.venvName);
 
         const requirementsPath: string = path.join(context.projectPath, requirementsFileName);
         if (await fse.pathExists(requirementsPath)) {
