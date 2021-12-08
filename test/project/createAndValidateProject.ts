@@ -35,7 +35,7 @@ export async function createAndValidateProject(context: TestActionContext, optio
     // Java needs to fix this issue first: https://github.com/Microsoft/vscode-azurefunctions/issues/81
     if (language !== ProjectLanguage.Java) {
         // don't create function
-        inputs.push(/skip for now/i);
+        // inputs.push(/skip for now/i);
     }
 
     await runWithFuncSetting(hiddenStacksSetting, true, async () => {
