@@ -8,6 +8,6 @@ import { uploadAppSettingsInternal } from "../appSettings/uploadAppSettings";
 
 export async function uploadAppSettingsFromApi(client: IAppSettingsClient, exclude?: (RegExp | string)[]): Promise<void> {
     return await callWithTelemetryAndErrorHandling('api.uploadAppSettings', async (context: IActionContext) => {
-        await uploadAppSettingsInternal(context, client, undefined, exclude);
+        await uploadAppSettingsInternal(context, client, /* workspaceFolder */ undefined, exclude);
     });
 }
