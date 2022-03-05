@@ -41,6 +41,7 @@
             "name": "Launch Tests",
             "type": "extensionHost",
             "request": "launch",
+            "envFile": "${workspaceFolder}/.env",
             "runtimeExecutable": "${execPath}",
             "args": [
                 "--extensionDevelopmentPath=${workspaceFolder}",
@@ -66,6 +67,7 @@
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",
+            "envFile": "${workspaceFolder}/.env",
             "args": [
                 "--extensionDevelopmentPath=${workspaceFolder}",
                 "--extensionTestsPath=${workspaceFolder}/dist/test/index",
