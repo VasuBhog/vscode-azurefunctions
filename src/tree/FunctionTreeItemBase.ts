@@ -44,6 +44,10 @@ export abstract class FunctionTreeItemBase extends AzExtTreeItem {
         return !!this._func?.invokeUrlTemplate || this._config.isHttpTrigger;
     }
 
+    public get isSQLInOrOutBinding(): boolean {
+        return this._config.isSQLInOrOutBinding;
+    }
+
     public get isTimerTrigger(): boolean {
         return this._config.isTimerTrigger;
     }

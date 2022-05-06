@@ -73,6 +73,7 @@ function parseDotnetTemplate(rawTemplate: IRawTemplate): IFunctionTemplate {
 
     return {
         isHttpTrigger: /^http/i.test(rawTemplate.Name) || /webhook$/i.test(rawTemplate.Name),
+        isSQLInOrOutBinding: /^sql/i.test(rawTemplate.Name),
         isTimerTrigger: /^timer/i.test(rawTemplate.Name),
         id: rawTemplate.Identity,
         name: rawTemplate.Name,

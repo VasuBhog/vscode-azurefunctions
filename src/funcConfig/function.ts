@@ -63,6 +63,10 @@ export class ParsedFunctionJson {
         return !!this.triggerBinding && !!this.triggerBinding.type && /^http/i.test(this.triggerBinding.type);
     }
 
+    public get isSQLInOrOutBinding(): boolean {
+        return !!this.triggerBinding && !!this.triggerBinding.type && /^sql/i.test(this.triggerBinding.type);
+    }
+
     public get isTimerTrigger(): boolean {
         return !!this.triggerBinding && !!this.triggerBinding.type && /^timer/i.test(this.triggerBinding.type);
     }

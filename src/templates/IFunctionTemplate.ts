@@ -18,7 +18,8 @@ export interface IFunctionTemplate {
     defaultFunctionName: string;
     language: string;
     isHttpTrigger: boolean;
-    isTimerTrigger: boolean;
+    isSQLInOrOutBinding: boolean;
+    isTimerTrigger: boolean
     userPromptedSettings: IBindingSetting[];
     categories: TemplateCategory[];
 }

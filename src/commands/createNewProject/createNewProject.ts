@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { AzureWizard, IActionContext } from '@microsoft/vscode-azext-utils';
+import { AzureWizard, AzureWizardExecuteStep, IActionContext } from '@microsoft/vscode-azext-utils';
 import { window } from 'vscode';
 import { funcVersionSetting, ProjectLanguage, projectLanguageSetting, projectOpenBehaviorSetting, projectTemplateKeySetting } from '../../constants';
 import { addLocalFuncTelemetry } from '../../funcCoreTools/getLocalFuncCoreToolsVersion';
@@ -49,7 +49,7 @@ export async function createNewProjectInternal(context: IActionContext, options:
     const version: string = options.version || getGlobalSetting(funcVersionSetting) || await tryGetLocalFuncVersion(context, undefined) || latestGAVersion;
     const projectTemplateKey: string | undefined = getGlobalSetting(projectTemplateKeySetting);
     const wizardContext: Partial<IFunctionWizardContext> & IActionContext = Object.assign(context, options, { language, version: tryParseFuncVersion(version), projectTemplateKey });
-    const optionalExecuteStep = options.executeStep;
+    const optionalExecuteStep: AzureWizardExecuteStep<IActionContext> | undefined = options.executeStep;
 
     if (options.folderPath) {
         FolderListStep.setProjectPath(wizardContext, options.folderPath);

@@ -120,7 +120,7 @@ async function validateAzureWebJobsStorage(context: IActionContext, projectLangu
                 return new ParsedFunctionJson(await fse.readJSON(functionJsonPath));
             }));
 
-            if (functions.some(f => !f.isHttpTrigger)) {
+            if (functions.some(f => !f.isHttpTrigger || !f.isSQLInOrOutBinding)) {
                 const wizardContext: IAzureWebJobsStorageWizardContext = Object.assign(context, { projectPath });
                 const wizard: AzureWizard<IAzureWebJobsStorageWizardContext> = new AzureWizard(wizardContext, {
                     promptSteps: [new AzureWebJobsStoragePromptStep(true /* suppressSkipForNow */)],

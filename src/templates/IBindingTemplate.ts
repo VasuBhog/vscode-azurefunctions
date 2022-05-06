@@ -13,6 +13,7 @@ export interface IBindingTemplate {
     direction: string;
     displayName: string;
     isHttpTrigger: boolean;
+    isSQLInOrOutBinding: boolean;
     isTimerTrigger: boolean;
     settings: IBindingSetting[];
 }

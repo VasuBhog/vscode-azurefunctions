@@ -160,6 +160,7 @@ export function parseScriptBindings(config: IConfig, resources: IResources): IBi
                         direction: rawBinding.direction,
                         displayName: getResourceValue(resources, rawBinding.displayName),
                         isHttpTrigger: /^http/i.test(rawBinding.type),
+                        isSQLInOrOutBinding: /^sql/i.test(rawBinding.type),
                         isTimerTrigger: /^timer/i.test(rawBinding.type),
                         settings,
                         type: rawBinding.type
@@ -220,6 +221,7 @@ export function parseScriptTemplate(rawTemplate: IRawTemplate, resources: IResou
     return {
         functionJson,
         isHttpTrigger: functionJson.isHttpTrigger,
+        isSQLInOrOutBinding: functionJson.isSQLInOrOutBinding,
         isTimerTrigger: functionJson.isTimerTrigger,
         id: rawTemplate.id,
         name: getResourceValue(resources, rawTemplate.metadata.name),
